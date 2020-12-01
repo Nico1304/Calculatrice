@@ -1,0 +1,87 @@
+  
+<html>
+  <head>
+     <style>
+         td button{width:100%}
+         div{display: block; margin: 20% 45%;}
+     </style>
+     <script>
+         //fonction qui va afficher la valeur entrée
+         function show(val)
+         {
+           document.getElementById("output").value+=val;
+         }
+         //fonction qui remet l'écran par défaut 
+        function sup() 
+        { 
+            document.getElementById("output").value = "";
+        } 
+       //Fonction qui permet d'évaluer puis de calculer ce qui a été entré
+        //La fonction eval() permet de calculer la chaine de caractères entrées: exemple: si on entre 13 + 1, il comprendra qu'il faut faire la somme des deux nombres entrés
+        function calc() 
+        { 
+            let a = document.getElementById("output").value;
+            let b = eval(a); 
+            document.getElementById("output").value = b; 
+        } 
+         //Fonction pour déclencher une fenetre pop up
+         function intro()
+        {
+            alert("Bienvenue sur ma calculatrice en html! Vous pouvez désormais éxxécuter n'importe quel opération de base! ");
+        }
+        //fonction qui modifie la couleur de fond de l'entrée
+        function couleur(x) {
+           x.style.background = "#00BFFF";
+         } 
+          //fonction qui affiche un message si on utilise une touche clavier
+       function evenement_clavier() 
+       {
+         alert("Tu as appuyé sur une touche clavier ");
+       }
+       //Fonction qui affiche une couleur quand la souris survole la touche
+       function couleur_bouton(x)
+       {
+           x.style.background = "#B8D7F5";
+       }
+       //Fonction qui retire la couleur après que la souris ait survolé la touche
+       function couleur_bouton1(x)
+       {
+           x.style.background = "#FFFFFF";
+       }
+     </script>
+  </head> 
+  <body onload=intro()> <div>
+    <center><table border id="tableau" >
+        <tr> 
+           <td colspan="3"><input onkeydown="evenement_clavier()" onfocus="couleur(this)" id="output"></td> <!--Création du tableau pour afficher la calculatrice correctement-->
+           <td><button onclick="sup('')" onmouseenter="couleur_bouton(this)"; onmouseleave="couleur_bouton1(this)">c</button></td> <!-- On attribut à chaque touche une fonction: soit effacer pour c pour réinitialiser l'affichage, 
+               show pour afficher la valeur entrée dans le tableau ou calc pour la touche = pour évaluer les valeurs affichées dans le tableau (fonction eval()) 
+               ou sup pour la touche c pour effacer le tableau-->  
+        </tr> 
+        <tr> 
+           <td><button onclick="show('1')"; onmouseenter="couleur_bouton(this)"; onmouseleave="couleur_bouton1(this)" >1</button></td> 
+           <td><button onclick="show('2')"; onmouseenter="couleur_bouton(this)"; onmouseleave="couleur_bouton1(this)">2</button></td> 
+           <td><button onclick="show('3')"; onmouseenter="couleur_bouton(this)"; onmouseleave="couleur_bouton1(this)">3</button></td> 
+           <td><button onclick="show('+')"; onmouseenter="couleur_bouton(this)"; onmouseleave="couleur_bouton1(this)">+</button></td> 
+        </tr> 
+        <tr>
+          <td><button onclick="show('4')"; onmouseenter="couleur_bouton(this)"; onmouseleave="couleur_bouton1(this)">4</button></td>
+          <td><button onclick="show('5')"; onmouseenter="couleur_bouton(this)"; onmouseleave="couleur_bouton1(this)">5</button></td>
+          <td><button onclick="show('6')"; onmouseenter="couleur_bouton(this)"; onmouseleave="couleur_bouton1(this)">6</button></td>
+          <td><button onclick="show('-')"; onmouseenter="couleur_bouton(this)"; onmouseleave="couleur_bouton1(this)">-</button></td>
+        </tr>
+        <tr>
+          <td><button onclick="show('7')"; onmouseenter="couleur_bouton(this)"; onmouseleave="couleur_bouton1(this)">7</button></td>
+          <td><button onclick="show('8')"; onmouseenter="couleur_bouton(this)"; onmouseleave="couleur_bouton1(this)">8</button></td>
+          <td><button onclick="show('9')"; onmouseenter="couleur_bouton(this)"; onmouseleave="couleur_bouton1(this)">9</button></td>
+          <td><button onclick="show('*')"; onmouseenter="couleur_bouton(this)"; onmouseleave="couleur_bouton1(this)">*</button></td>
+        </tr>
+        <tr>
+          <td><button onclick="show('.')"; onmouseenter="couleur_bouton(this)"; onmouseleave="couleur_bouton1(this)">.</button></td>
+          <td><button onclick="show('0')"; onmouseenter="couleur_bouton(this)"; onmouseleave="couleur_bouton1(this)">0</button></td>
+          <td><button onclick="calc('')";; onmouseenter="couleur_bouton(this)"; onmouseleave="couleur_bouton1(this)">=</button></td>
+          <td><button onclick="show('/')"; onmouseenter="couleur_bouton(this)"; onmouseleave="couleur_bouton1(this)">/</button></td>
+        </tr>
+     </table> </div>
+  </body> 
+</html>
